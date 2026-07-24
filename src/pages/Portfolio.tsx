@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import MyProjects from "../MyProjects.ts";
 import {
   SiHtml5,
@@ -11,47 +11,9 @@ import {
   SiSupabase,
   SiGit,
 } from "react-icons/si";
-import resume from "../assets/Mark_Mendel_Asis_Resume.pdf"
-
-/**
- * Scroll-reveal hook.
- * Give any section a ref; it flips `visible` to true the first time
- * the element crosses into the viewport, then stops watching.
- * Respects prefers-reduced-motion by skipping the animation entirely.
- */
-function useReveal<T extends HTMLElement>(threshold = 0.15) {
-  const ref = useRef<T | null>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (prefersReduced) {
-      setVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(node);
-        }
-      },
-      { threshold, rootMargin: "0px 0px -60px 0px" },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [threshold]);
-
-  return { ref, visible };
-}
+import resume from "../assets/Mark_Mendel_Asis_Resume.pdf";
+import ProjectCard from "../components/ProjectCard.tsx";
+import { useReveal } from "../hooks/useReveal.ts";
 
 function Portfolio() {
   const skills = [
@@ -75,11 +37,16 @@ function Portfolio() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const about = useReveal<HTMLDivElement>();
-  const projectsHeading = useReveal<HTMLDivElement>();
-  const skillsSection = useReveal<HTMLDivElement>();
-  const contact = useReveal<HTMLDivElement>();
-  const stats = useReveal<HTMLDivElement>();
+  const { ref: aboutRef, visible: aboutVisible } = useReveal<HTMLDivElement>();
+
+  const { ref: projectsHeadingRef, visible: projectsHeadingVisible } =
+    useReveal<HTMLDivElement>();
+
+  const { ref: skillsSectionRef, visible: skillsSectionVisible } =
+    useReveal<HTMLDivElement>();
+
+  const { ref: contactRef, visible: contactVisible } =
+    useReveal<HTMLDivElement>();
 
   return (
     <div className="min-h-screen w-full bg-sky-50 text-gray-900 font-sans scroll-smooth">
@@ -245,9 +212,9 @@ function Portfolio() {
           <h2 className="text-3xl font-bold text-sky-600 mb-10">About me</h2>
 
           <div
-            ref={about.ref}
+            ref={aboutRef}
             className={`reveal ${
-              about.visible ? "is-visible" : ""
+              aboutVisible ? "is-visible" : ""
             } bg-sky-50 border border-sky-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow`}
           >
             <p className="text-gray-700 leading-relaxed text-base">
@@ -299,9 +266,9 @@ function Portfolio() {
           {/* LEFT: Projects */}
           <div className="h-full flex flex-col">
             <div
-              ref={projectsHeading.ref}
+              ref={projectsHeadingRef}
               className={`reveal ${
-                projectsHeading.visible ? "is-visible" : ""
+                projectsHeadingVisible ? "is-visible" : ""
               } mb-10`}
             >
               <h3 className="text-2xl font-bold text-sky-600">Projects</h3>
@@ -311,49 +278,18 @@ function Portfolio() {
             </div>
 
             <div className="grid grid-cols-1 gap-6 w-full">
-              {MyProjects.map((project, index) => {
-                const item = useReveal<HTMLAnchorElement>(0.1);
-                return (
-                  <a
-                    key={index}
-                    ref={item.ref}
-                    className={`reveal ${
-                      item.visible ? "is-visible" : ""
-                    } group flex bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all overflow-hidden`}
-                    style={{
-                      transitionDelay: item.visible ? `${index * 90}ms` : "0ms",
-                    }}
-                    href={project.URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src={project.Image}
-                      alt={project.ProjectName}
-                      className="w-24 h-24 object-cover m-4 rounded-xl transition-transform duration-300 group-hover:scale-105"
-                    />
-
-                    <div className="flex flex-col justify-center p-4">
-                      <h4 className="text-lg font-semibold text-sky-700 group-hover:text-sky-600 transition-colors">
-                        {project.ProjectName}
-                      </h4>
-
-                      <p className="text-gray-600 text-sm mt-1 line-clamp-2">
-                        {project.ProjectDescription}
-                      </p>
-                    </div>
-                  </a>
-                );
-              })}
+              {MyProjects.map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
             </div>
           </div>
 
           {/* RIGHT: Skills */}
           <div id="skills" className="scroll-mt-20 h-full flex flex-col">
             <div
-              ref={skillsSection.ref}
+              ref={skillsSectionRef}
               className={`reveal ${
-                skillsSection.visible ? "is-visible" : ""
+                skillsSectionVisible ? "is-visible" : ""
               } flex-1 flex flex-col`}
             >
               <h3 className="text-2xl font-bold text-sky-600 mb-2">Skills</h3>
@@ -368,10 +304,10 @@ function Portfolio() {
                     <div
                       key={skill.name}
                       className={`reveal ${
-                        skillsSection.visible ? "is-visible" : ""
+                        skillsSectionVisible ? "is-visible" : ""
                       } group flex flex-col items-center justify-center gap-3 rounded-2xl bg-white border border-sky-100 p-4 text-center shadow-sm hover:-translate-y-1 hover:shadow-lg hover:border-sky-200 transition-all cursor-default`}
                       style={{
-                        transitionDelay: skillsSection.visible
+                        transitionDelay: skillsSectionVisible
                           ? `${index * 60}ms`
                           : "0ms",
                       }}
@@ -399,8 +335,8 @@ function Portfolio() {
         className="w-full px-6 py-20 bg-sky-600 text-white text-center scroll-mt-20"
       >
         <div
-          ref={contact.ref}
-          className={`reveal ${contact.visible ? "is-visible" : ""}`}
+          ref={contactRef}
+          className={`reveal ${contactVisible ? "is-visible" : ""}`}
         >
           <h3 className="text-3xl font-bold mb-4">Let's Work Together</h3>
 
