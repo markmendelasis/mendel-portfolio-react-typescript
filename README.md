@@ -1,121 +1,185 @@
-💼 Mark Mendel Asis — Developer Portfolio
+# 💼 Mark Mendel Asis — Developer Portfolio
 
-A modern, responsive portfolio website built to showcase my software development experience, technical skills, and personal projects.
+Welcome to my personal developer portfolio! This website showcases my professional experience, technical skills, and software development projects.
 
-The portfolio highlights my background in enterprise software development and modern frontend technologies while serving as a central place for recruiters and developers to learn more about my work.
+I am a **Software Developer** with experience developing enterprise applications and modern web applications. My passion lies in building clean, scalable, and user-focused applications while continuously learning modern technologies.
 
-🌐 Live Demo
+---
 
-Portfolio: https://mendel-portfolio.netlify.app/
+## 🌐 Live Demo
 
-📷 Preview
+* **Portfolio:** [https://mendel-portfolio.netlify.app/](https://mendel-portfolio.netlify.app/)
 
-Add screenshots of your homepage, projects section, skills section, and contact section here.
+---
 
-✨ Features
-Responsive design for desktop, tablet, and mobile
-Smooth scrolling navigation
-Animated sections using the Intersection Observer API
-Project showcase with live demos and GitHub repositories
-Skills section with technology icons
-About Me section
-Contact section with email and social links
-Clean and modern UI built with reusable React components
-🛠️ Tech Stack
-Frontend
-React
-TypeScript
-Vite
-Tailwind CSS
-Libraries
-Lucide React
-React Icons
-Development Tools
-Git
-GitHub
-Visual Studio Code
-📂 Project Structure
-src/
-├── assets/
-├── components/
-├── hooks/
-├── pages/
-├── sections/
-├── data/
-├── styles/
-├── App.tsx
-└── main.tsx
-🚀 Featured Projects
-Personal AI Finance Dashboard
+## ✨ Features
 
-A full-stack personal finance dashboard that helps users manage income, expenses, savings, and financial insights.
+* Responsive design for desktop, tablet, and mobile
+* Smooth scrolling navigation
+* Scroll reveal animations
+* Professional About Me section
+* Technical skills showcase
+* Featured projects with live demos and GitHub repositories
+* Contact section with social links
+* Clean and modern user interface
+* Component-based architecture
 
-Technologies
+---
 
-React
-TypeScript
-Tailwind CSS
-Supabase
-Recharts
-Task Manager
+## 🛠️ Tech Stack
 
-A productivity application designed to help users organize and manage tasks efficiently.
+### Frontend
 
-Portfolio Website
+* React
+* TypeScript
+* Tailwind CSS
+* Vite
 
-This portfolio itself, demonstrating modern frontend development practices, responsive layouts, reusable components, and clean UI design.
 
-💻 Skills Demonstrated
-React Development
-TypeScript
-JavaScript (ES6+)
-Responsive Web Design
-Component-Based Architecture
-Custom React Hooks
-REST API Integration
-State Management
-Git Version Control
-Clean UI Design
-📦 Installation
+### Libraries
+
+* React Icons
+* Lucide React
+
+### Development Tools
+
+* Git
+* GitHub
+* Visual Studio Code
+
+---
+
+## 🚀 Featured Projects
+
+### 💰 Personal AI Finance Dashboard
+
+A modern full-stack personal finance dashboard that enables users to track income, expenses, savings, and financial trends through interactive dashboards and visualizations.
+
+**Key Features**
+
+* User Authentication
+* Dashboard Analytics
+* CRUD Transactions
+* Expense Categories
+* Financial Charts
+* Responsive Design
+
+**Technologies**
+
+* React
+* TypeScript
+* Tailwind CSS
+* Supabase
+* Recharts
+
+---
+
+### 🌐 Developer Portfolio
+
+A modern portfolio website designed to showcase my professional experience, technical skills, and software development projects.
+
+**Key Features**
+
+* Responsive Layout
+* Animated UI
+* Skills Showcase
+* Project Gallery
+* Contact Section
+
+**Technologies**
+
+* React
+* TypeScript
+* Tailwind CSS
+* Vite
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Node.js (v18 or later)
+* npm
+
+### Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/markmendelasis/portfolio.git
+```
 
-Navigate to the project:
+Navigate to the project directory:
 
+```bash
 cd portfolio
+```
 
 Install dependencies:
 
+```bash
 npm install
+```
 
 Start the development server:
 
+```bash
 npm run dev
+```
 
-Build for production:
+Open your browser and visit:
 
+```text
+http://localhost:5173
+```
+
+---
+
+## 📦 Build for Production
+
+```bash
 npm run build
-🎯 Purpose
+```
 
-This portfolio serves as a central hub for my software development journey, allowing recruiters and fellow developers to explore my projects, technical skills, and professional experience.
+Preview the production build:
 
-It reflects my passion for building clean, user-friendly, and maintainable web applications while continuously learning modern technologies.
+```bash
+npm run preview
+```
 
-📈 Future Improvements
-Dark/Light theme toggle
-Blog section
-Case study pages for each project
-Project filtering by technology
-Performance optimizations
-Additional animations and accessibility improvements
+---
 
-📫 Contact
+## 🎯 Purpose
 
-Email: markmendelasis17@gmail.com
-Portfolio: https://mendel-portfolio.netlify.app/
+This portfolio serves as a central hub for my software development journey. It highlights my professional experience, technical expertise, and personal projects while demonstrating my ability to build modern, responsive, and maintainable web applications.
 
-LinkedIn: https://linkedin.com/in/your-linkedin
+---
 
-⭐ If you enjoyed exploring my work, feel free to star the repository or connect with me on LinkedIn!
+## 🔮 Future Improvements
+
+* Dark and Light Theme
+* Blog Section
+* Project Case Studies
+* More Interactive Animations
+* Accessibility Improvements
+* Performance Optimizations
+
+---
+
+## 📫 Contact
+
+* 🌐 **Portfolio:** [https://mendel-portfolio.netlify.app/](https://mendel-portfolio.netlify.app/)
+* 💼 **LinkedIn:** [https://linkedin.com/in/markmendelasis](https://linkedin.com/in/markmendelasis)
+* 💻 **GitHub:** [https://github.com/markmendelasis](https://github.com/markmendelasis)
+* 📧 **Email:** [markmendelasis17@gmail.com](mailto:markmendelasis17@gmail.com)
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+⭐ Thank you for visiting my portfolio! If you have any questions or would like to collaborate, feel free to reach out or connect with me on LinkedIn.
