@@ -17,6 +17,7 @@ import { useReveal } from "../hooks/useReveal.ts";
 import PersonalAIDashboardMockUp from "../assets/PersonalAIDashboardMockUp.png";
 
 function Portfolio() {
+  const navigationSections = ["about", "projects", "skills", "contact"];
   const skills = [
     { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS3", icon: SiCss, color: "#1572B6" },
@@ -31,11 +32,21 @@ function Portfolio() {
 
   // Sticky navbar gains a shadow/blur once the page scrolls
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
   const { ref: aboutRef, visible: aboutVisible } = useReveal<HTMLDivElement>();
@@ -97,30 +108,68 @@ function Portfolio() {
 
       {/* NAVBAR */}
       <header
-        className={`sticky top-0 z-50 w-full flex items-center justify-between px-6 py-4 transition-all duration-300 ${
+        className={`sticky top-0 z-50 w-full px-6 py-4 transition-all duration-300 ${
           scrolled
             ? "bg-white/80 backdrop-blur-md shadow-sm"
             : "bg-white/0 backdrop-blur-0"
         }`}
       >
-        <h1 className="text-2xl font-extrabold tracking-tight cursor-pointer group">
-          <span className="bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 bg-clip-text text-transparent transition-all duration-300 group-hover:tracking-widest">
-            mark.io
-          </span>
-          <span className="block h-[2px] w-0 bg-gradient-to-r from-sky-500 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
-        </h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-extrabold tracking-tight cursor-pointer group">
+            <span className="bg-gradient-to-r from-sky-500 via-cyan-400 to-blue-500 bg-clip-text text-transparent transition-all duration-300 group-hover:tracking-widest">
+              mark.io
+            </span>
+            <span className="block h-[2px] w-0 bg-gradient-to-r from-sky-500 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+          </h1>
 
-        <nav className="hidden sm:flex items-center space-x-6 text-sm font-medium text-gray-600">
-          {["about", "projects", "skills", "contact"].map((section) => (
-            <a
-              key={section}
-              href={`#${section}`}
-              className="relative hover:text-sky-600 transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-sky-500 hover:after:w-full after:transition-all after:duration-300 capitalize"
-            >
-              {section}
-            </a>
-          ))}
-        </nav>
+          <nav className="hidden sm:flex items-center space-x-6 text-sm font-medium text-gray-600">
+            {navigationSections.map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                className="relative hover:text-sky-600 transition-colors after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-sky-500 hover:after:w-full after:transition-all after:duration-300 capitalize"
+              >
+                {section}
+              </a>
+            ))}
+          </nav>
+
+          <button
+            type="button"
+            className="sm:hidden inline-flex items-center justify-center rounded-lg p-2 text-sky-700 hover:bg-sky-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          >
+            <svg aria-hidden="true" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {mobileMenuOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        {mobileMenuOpen && (
+          <nav
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+            className="sm:hidden mt-4 rounded-xl border border-sky-100 bg-white/95 p-2 shadow-lg backdrop-blur-md"
+          >
+            {navigationSections.map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-lg px-4 py-3 text-sm font-medium capitalize text-gray-700 transition-colors hover:bg-sky-50 hover:text-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >
+                {section}
+              </a>
+            ))}
+          </nav>
+        )}
       </header>
 
       {/* HERO */}
