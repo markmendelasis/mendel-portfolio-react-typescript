@@ -34,7 +34,7 @@ function ProjectCard({
           {project.ProjectName}
         </h4>
 
-        <p className="text-gray-600 text-sm mt-1 line-clamp-2">
+        <p className="text-gray-600 text-sm mt-1 line-clamp-2 hover:line-clamp-none transition-all">
           {project.ProjectDescription}
         </p>
       </div>
