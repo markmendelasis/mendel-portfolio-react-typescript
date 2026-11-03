@@ -268,40 +268,35 @@ function Portfolio() {
             } bg-sky-50 border border-sky-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow`}
           >
             <p className="text-gray-700 leading-relaxed text-base">
-              My journey into software development began with a curiosity about
-              how websites and applications work behind the scenes. What started
-              with learning HTML and CSS eventually grew into a passion for
-              building modern web applications and continuously improving my
-              craft.
+              My journey in software development began with a curiosity about how websites and applications
+              work behind the scenes. That curiosity evolved into a passion for building practical,
+              user-focused solutions and continuously expanding my technical skills.
             </p>
 
             <p className="text-gray-700 leading-relaxed mt-4">
-              Over the past two years, I gained professional experience
-              contributing to the development and maintenance of ERP
-              applications, including Warehouse Management, CRM, and Finance
-              systems. Working alongside experienced developers strengthened my
-              technical skills, taught me the value of clean, maintainable code,
-              and showed me the importance of collaboration in delivering
-              reliable software.
+              I have nearly two years of professional experience contributing to the development,
+               enhancement, and maintenance of enterprise applications, including Warehouse Management
+                Systems (WMS), Customer Relationship Management (CRM), and Finance systems. 
+                Through this experience, I developed a strong foundation in web development, 
+                database management, and application troubleshooting while learning the importance 
+                of writing maintainable code, collaborating effectively, and delivering 
+                reliable software solutions.
             </p>
 
             <p className="text-gray-700 leading-relaxed mt-4">
-              Today, I enjoy building full-stack web applications with
-              technologies such as
+              Beyond my professional experience, I actively work on personal projects to strengthen
+               my skills and explore modern technologies. My current technology stack includes
               <span className="font-medium">
                 {" "}
-                TypeScript, React, Tailwind CSS, Supabase. &nbsp;
+                React, TypeScript, JavaScript, Tailwind CSS, and Supabase &nbsp;
               </span>
-              I enjoy solving real-world problems, exploring new technologies,
-              and continuously challenging myself through personal projects and
-              hands-on learning.
+              which I use to build responsive and interactive web applications.
             </p>
 
             <p className="text-gray-700 leading-relaxed mt-4 italic text-sky-700 border-l-2 border-sky-300 pl-4">
-              "I believe that great developers are defined not only by what they
-              know, but by their willingness to learn, adapt, and improve. Every
-              project is an opportunity to grow, and I'm excited to keep
-              building software that makes a meaningful impact."
+              "I believe that becoming a great developer is a continuous process of learning, 
+              adapting, and improving. I approach every project as an opportunity to solve 
+              problems, explore new ideas, and create meaningful solutions through technology."
             </p>
           </div>
         </div>
@@ -626,7 +621,7 @@ function Portfolio() {
           <h3 className="text-3xl font-bold mb-4">Let's Work Together</h3>
 
           <p className="text-sky-100 mb-8">
-            Open to Full Stack and Frontend Developer opportunities.
+            I'm open to Software Development opportunities where I can apply my technical skills, contribute to meaningful projects, and continue growing as a developer.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
