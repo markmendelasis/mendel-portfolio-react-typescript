@@ -1,7 +1,8 @@
 import EnigmaticKey from "./assets/TEK.png";
 import AZSpell from "./assets/AZSpellingBee.jpg";
 import TaskManager from "./assets/ToDoApp.png";
-import PersonalAIDashboardLogo from "./assets/PersonalAIDashboardLogo.png";
+import FinTrack from "./assets/Fintrack.png";
+import ApplyTrack from "./assets/ApplyTrack.png";
 
 type Project = {
   ProjectName: string;
@@ -12,18 +13,25 @@ type Project = {
 
 const MyProjects: Project[] = [
   {
-    ProjectName: "Task Manager",
+    ProjectName: "FinTrack",
     ProjectDescription:
-      "I built this Application using React, TypeScript and Tailwind CSS. Deployed using Netlify.",
-    Image: TaskManager,
-    URL: "https://do-it-task-manager.netlify.app/",
+      "I built this personal finance management application using React, TypeScript, Tailwind CSS, and Supabase. It features secure authentication, transaction management, account tracking, and PostgreSQL-powered financial validation and audit logging. Deployed using Netlify.",
+    Image: FinTrack,
+    URL: "https://fintrack-ledger-app.netlify.app/",
   },
   {
-    ProjectName: "Personal AI Financial Dashboard",
+    ProjectName: "ApplyTrack",
     ProjectDescription:
-      "A personal AI-powered financial dashboard that allows users to track income and expenses, visualize spending patterns, and gain insights into their financial habits.",
-    Image: PersonalAIDashboardLogo,
-    URL: "https://personal-ai-finance-dashboard.netlify.app/",
+      "I built this job application tracking application using React, TypeScript, Tailwind CSS, and Supabase. It helps users organize job applications, track application statuses, and manage their job search. Deployed using Netlify.",
+    Image: ApplyTrack,
+    URL: "https://applytrack-app.netlify.app/",
+  },
+  {
+    ProjectName: "Task Manager",
+    ProjectDescription:
+      "I built this task management application using React, TypeScript, and Tailwind CSS. It allows users to organize, manage, and track their tasks efficiently. Deployed using Netlify.",
+    Image: TaskManager,
+    URL: "https://do-it-task-manager.netlify.app/",
   },
   {
     ProjectName: "The Enigmatic Key: Paths of Destiny",
@@ -35,7 +43,7 @@ const MyProjects: Project[] = [
   {
     ProjectName: "A-Z Spelling Bee",
     ProjectDescription:
-      "I built this website using HTML, CSS, Bootstrap, and JavaScript and deployed it using GitHub.",
+      "I built this interactive spelling bee application using HTML, CSS, Bootstrap, and JavaScript. It helps users practice spelling through interactive activities. Deployed using GitHub Pages.",
     Image: AZSpell,
     URL: "https://markmendelasis.github.io/A-Z_SpellingBee/",
   },
